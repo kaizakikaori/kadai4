@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     // ★紐付け一覧
     // 誕生日を入力するPickerViewを紐付け
     @IBOutlet weak var birthDayPicker: UIDatePicker!
@@ -65,15 +65,10 @@ class ViewController: UIViewController {
         "ふと口をついて出た曲をダウンロードするか、ラジオ番組にリクエストメールを出しましょう。",
     ]
     
-    
-    
     // ★関数
-    
     // 画面が読み込まれたときの処理
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
     // birthDayPickerViewの選択結果を、占い結果を決めるkeyに変換し、戻り値で取得する(returnするので、戻り値の型指定も忘れないこと!!)
@@ -86,7 +81,6 @@ class ViewController: UIViewController {
         let year = birthDayPicker.calendar.component(.year, from: date)
         let month = birthDayPicker.calendar.component(.month, from: date)
         let day = birthDayPicker.calendar.component(.day, from: date)
-        
         
         // 占い結果(に使うため、4で割った余りを定数に格納(4パターンある)
         let key: Int = (year + month + day) % 4
@@ -102,16 +96,13 @@ class ViewController: UIViewController {
         return Key
     }
     
-    
     // Sliderから選んだ数字の選択結果を、占い結果を決めるkeyに変換し、戻り値で取得する
     func setLikeNum() -> Int {
         
         let Key: Int = sliderNum % 4
         
-        
         return Key
     }
-    
     
     //「占うボタン」をおしたとき、占い結果を最下部のtextView(result)に表示する
     @IBAction func finalResult(_ sender: Any) {
